@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import './styles.css'
-import { listProduct } from '../../../actions/ethActions/web3Init'
+
 const ProductList = () => {
 
 

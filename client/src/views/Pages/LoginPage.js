@@ -6,13 +6,14 @@ import { postLogin } from '../../actions/authActions/formValidate'
 
 export const LoginPage = () => {
     const dispatch = useDispatch()
-    
+
     const submit = value => {
         dispatch(postLogin(value))
+   
     }
 
     return (
-    <>
+        <>
             <h1 class='large text-primary'>Sign In</h1>
             <Login onSubmit={submit} />
             <p class='my-1'>

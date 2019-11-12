@@ -2,13 +2,14 @@ import React from 'react'
 import Register from '../components/auth/Register'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { postRegister } from '../../actions/authActions/formValidate'
+import { postRegister} from '../../actions/authActions/formValidate'
 
 export const RegisterPage = () => {
     const dispatch = useDispatch()
 
     const submit = value => {
         dispatch(postRegister(value))
+     
     }
 
     return (

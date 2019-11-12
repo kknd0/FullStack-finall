@@ -1,8 +1,9 @@
 import axios from 'axios'
-import { REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR } from '../types'
+import { REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS } from '../types'
 
 import { setAlert } from '../alertActions'
 import setAuthToken from './setAuthToken'
+import history from '../../history'
 
 // Register User
 export const postRegister = ({ name, phone, password }) => async dispatch => {
@@ -19,6 +20,10 @@ export const postRegister = ({ name, phone, password }) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: response.data,
         })
+
+        dispatch(loadUser())
+
+        history.push('/')
     } catch (err) {
         const errors = err.response.data.errors
         errors.forEach(({ msg }) => {
@@ -42,9 +47,13 @@ export const postLogin = ({ phone, password }) => async dispatch => {
         const response = await axios.post('/api/auth', body, config)
         console.log(response)
         dispatch({
-            type: REGISTER_SUCCESS,
+            type: LOGIN_SUCCESS,
             payload: response.data,
         })
+
+        dispatch(loadUser())
+
+        history.push('/')
     } catch (err) {
         const errors = err.response.data.errors
         if (errors) {
@@ -53,7 +62,7 @@ export const postLogin = ({ phone, password }) => async dispatch => {
             })
         }
         dispatch({
-            type: REGISTER_FAIL,
+            type: LOGIN_FAIL,
         })
     }
 }
