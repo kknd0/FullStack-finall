@@ -1,0 +1,6 @@
+{
+    "mongoURI":"mongodb+srv://lilizi:lilizi123@cluster0-9uhya.azure.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret":"JordanBPeterson",
+    "githubClientId":"ee417375d6d8dd907ff7",
+    "githubSecret":"aad94e11f7cc5b55bd4d122664a1e582d569f9d0"
+}
