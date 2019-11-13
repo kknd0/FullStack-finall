@@ -19,10 +19,10 @@ let Login = props => {
  
     return (
         <form onSubmit={handleSubmit} className='form'>
-            <Field name='phone' label='Enter phone' component={renderField} type='text' />
-            <Field name='password' label='Enter password' type='password' component={renderField} />
+            <Field name='phone' label='请输入手机号码' component={renderField} type='text' />
+            <Field name='password' label='请输入密码' type='password' component={renderField} />
             <button type='submit' class='btn btn-primary' disabled={submitting}>
-                Submit
+                登陆
             </button>
         </form>
     )
@@ -31,14 +31,14 @@ let Login = props => {
 const validate = formValues => {
     //regEx
     const errors = {}
-    const phonePattern = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
+    const phonePattern = /(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
     const phoneResult = phonePattern.test(formValues.phone)
 
     if (!formValues.password) {
-        errors.password = 'You must enter a password'
+        errors.password = '请输入一个密码'
     }
     if (!phoneResult) {
-        errors.phone = 'You must enter a phone'
+        errors.phone = '请输入手机号码'
     }
     return errors
 }

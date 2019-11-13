@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS } from '../types'
+import { REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from '../types'
 
 import { setAlert } from '../alertActions'
 import setAuthToken from './setAuthToken'
@@ -23,7 +23,7 @@ export const postRegister = ({ name, phone, password }) => async dispatch => {
 
         dispatch(loadUser())
 
-        history.push('/')
+        history.push('/Dashboard')
     } catch (err) {
         const errors = err.response.data.errors
         errors.forEach(({ msg }) => {
@@ -53,7 +53,7 @@ export const postLogin = ({ phone, password }) => async dispatch => {
 
         dispatch(loadUser())
 
-        history.push('/')
+        history.push('/Dashboard')
     } catch (err) {
         const errors = err.response.data.errors
         if (errors) {
@@ -80,4 +80,11 @@ export const loadUser = () => async dispatch => {
     } catch (err) {
         dispatch({ type: AUTH_ERROR })
     }
+}
+
+// Logout / Clear Profile
+
+export const logOut = () => dispatch => {
+    dispatch({ type: LOGOUT })
+    history.push('/')
 }

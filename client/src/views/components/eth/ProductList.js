@@ -67,7 +67,8 @@ const ProductList = () => {
                                                             buy(id)
                                                         }}
                                                     >
-                                                        竞拍
+                                                        <i className="fas fa-gavel"/>
+                                                        <span> 竞拍</span>
                                                     </Button>
                                                 </td>
                                             </tr>

@@ -7,14 +7,18 @@ import history from './history'
 
 import NavBar from './views/components/NavBar'
 
-import HomePage from './views/Pages/HomePage'
+import MarketPage from './views/Pages/MarketPage'
 import GetEthPage from './views/Pages/GetEthPage'
 import { LoginPage } from './views/Pages/LoginPage'
 import { RegisterPage } from './views/Pages/RegisterPage'
 import Alert from './views/components/utils/Alert'
-import { loadUser } from './actions/authActions/formValidate'
+import { loadUser } from './actions/authActions/authValidate'
 import { useDispatch } from 'react-redux'
 import setAuthToken from './actions/authActions/setAuthToken'
+import MapEthtoStore from './views/components/eth/MapEthtoStore'
+import LandingPage from './views/Pages/LandingPage'
+import Dashboard from './views/components/dashboard/Dashboard'
+import PrivateRoute from './views/components/utils/PrivateRoute'
 
 if (localStorage.token) {
     setAuthToken(localStorage.token)
@@ -30,17 +34,22 @@ const App = () => {
         <Fragment>
             <Router history={history}>
                 <NavBar />
-                <section class='container'>
-                    <Alert />
 
-                    <Switch>
-                        <Route path='/' exact component={HomePage} />
-                        <Route path='/GetEth' exact component={GetEthPage} />
+                <Switch>
+                    <Route path='/' exact component={LandingPage} />
+                    <section class='container'>
+                        <Alert />
                         <Route path='/Login' exact component={LoginPage} />
                         <Route path='/Register' exact component={RegisterPage} />
-                    </Switch>
-                </section>
+
+                        <PrivateRoute path='/Market' exact component={MarketPage} />
+                        <PrivateRoute path='/GetEth' exact component={GetEthPage} />
+                        
+                        <PrivateRoute path='/Dashboard' exact component={Dashboard} />
+                    </section>
+                </Switch>
             </Router>
+            <MapEthtoStore />
         </Fragment>
     )
 }

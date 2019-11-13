@@ -5,7 +5,7 @@ import ProductList from '../components/eth/ProductList'
 
 
 
-const HomePage = () => {
+const MarketPage = () => {
     return (
         <div>
             <CreateProduct />
@@ -15,4 +15,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default MarketPage
