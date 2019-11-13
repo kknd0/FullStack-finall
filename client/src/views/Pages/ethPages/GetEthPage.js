@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch} from 'react-redux'
-import {  loadingOn } from '../../actions/ethActions/ethAction'
-import { getEth } from '../../actions/ethActions/sendFreeEth'
+import {  loadingOn } from '../../../actions/ethActions/ethAction'
+import { getEth } from '../../../actions/ethActions/sendFreeEth'
 
 
 const GetEthPage = () => {

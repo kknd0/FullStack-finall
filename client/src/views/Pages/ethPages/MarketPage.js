@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CreateProduct from '../components/eth/CreateProduct'
-import ProductList from '../components/eth/ProductList'
+import CreateProduct from '../../components/eth/CreateProduct'
+import ProductList from '../../components/eth/ProductList'
 
 
 

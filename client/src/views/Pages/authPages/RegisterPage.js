@@ -1,8 +1,8 @@
 import React from 'react'
-import Register from '../components/auth/Register'
+import Register from '../../components/auth/Register'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { postRegister} from '../../actions/authActions/authValidate'
+import { postRegister} from '../../../actions/authActions/authValidate'
 
 export const RegisterPage = () => {
     const dispatch = useDispatch()

@@ -1,8 +1,8 @@
 import React from 'react'
-import Login from '../components/auth/Login'
+import Login from '../../components/auth/Login'
 import { Link , Redirect} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { postLogin } from '../../actions/authActions/authValidate'
+import { postLogin } from '../../../actions/authActions/authValidate'
 
 export const LoginPage = () => {
     const dispatch = useDispatch()

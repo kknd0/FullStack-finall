@@ -7,18 +7,22 @@ import history from './history'
 
 import NavBar from './views/components/NavBar'
 
-import MarketPage from './views/Pages/MarketPage'
-import GetEthPage from './views/Pages/GetEthPage'
-import { LoginPage } from './views/Pages/LoginPage'
-import { RegisterPage } from './views/Pages/RegisterPage'
+
+
 import Alert from './views/components/utils/Alert'
 import { loadUser } from './actions/authActions/authValidate'
 import { useDispatch } from 'react-redux'
+import PrivateRoute from './views/components/utils/PrivateRoute'
 import setAuthToken from './actions/authActions/setAuthToken'
 import MapEthtoStore from './views/components/eth/MapEthtoStore'
 import LandingPage from './views/Pages/LandingPage'
-import Dashboard from './views/components/dashboard/Dashboard'
-import PrivateRoute from './views/components/utils/PrivateRoute'
+
+
+import MarketPage from './views/Pages/ethPages/MarketPage'
+import GetEthPage from './views/Pages/ethPages/GetEthPage'
+import DashboardPage from './views/Pages/userPages/DashboardPage'
+import { LoginPage } from './views/Pages/authPages/LoginPage'
+import { RegisterPage } from './views/Pages/authPages/RegisterPage'
 
 if (localStorage.token) {
     setAuthToken(localStorage.token)
@@ -45,7 +49,7 @@ const App = () => {
                         <PrivateRoute path='/Market' exact component={MarketPage} />
                         <PrivateRoute path='/GetEth' exact component={GetEthPage} />
                         
-                        <PrivateRoute path='/Dashboard' exact component={Dashboard} />
+                        <PrivateRoute path='/Dashboard' exact component={DashboardPage} />
                     </section>
                 </Switch>
             </Router>
